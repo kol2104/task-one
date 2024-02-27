@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password # Change as per your requirement
+      MYSQL_DATABASE: my_database_name
+      MYSQL_USER: my_username
+      MYSQL_PASSWORD: my_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  sonarqube:
+    image: sonarqube:latest
+    ports:
+      - "9000:9000"
+
+volumes:
+  mysql_data:
